@@ -1,0 +1,12 @@
+{
+  "name": "tugas-sejarah-web",
+  "version": "1.0.0",
+  "description": "Static website + online leaderboard API served via Node.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

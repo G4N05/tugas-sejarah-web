@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Project</title>
+    <!-- Font Awesome Icons & Fontshare Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@200,300,400,500,600,700&f[]=clash-grotesk@600&display=swap" rel="stylesheet">
+
+    <!-- CSS files -->
+    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="nav-brand">
+        <button class="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+        </button>
+        <span class="learn-text">Halo Siswa!</span>
+    </div>
+
+    <div class="top-right-actions">
+        <div class="circle-panel-container">
+            <button class="top-circle circle-extra" aria-label="Toggle panel"></button>
+            <div class="circle-panel-dropdown">
+                <div class="panel-icon-item" style="background-color: #ffffff; border: 1px solid rgba(0, 0, 0, 0.2);" aria-label="White"></div>
+                <div class="panel-icon-item" style="background-color: #fef4b7;" aria-label="Yellow"></div>
+                <div class="panel-icon-item" style="background-color: #b7effe;" aria-label="Blue"></div>
+                <div class="panel-icon-item" style="background-color: #fcb7fe;" aria-label="Pink"></div>
+                <div class="panel-icon-item" style="background-color: #c2feb7;" aria-label="Green"></div>
+            </div>
+        </div>
+        <div class="top-circle top-right-circle" aria-hidden="true"></div>
+    </div>
+
+    <div id="wheel-modal" class="wheel-modal">
+        <div id="container">
+            <div id="wheel" tabindex="0" role="listbox" aria-label="Pilih genre"></div>
+        </div>
+    </div>
+
+    <!-- Team Modal Popup -->
+    <div id="team-modal" class="app-popup-modal" aria-hidden="true">
+        <div class="popup-backdrop"></div>
+        <div class="popup-card">
+            <button class="popup-close-btn" data-close-modal="team-modal" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+            <div class="popup-header">
+                <div class="popup-icon-badge"><i class="fa-solid fa-users"></i></div>
+                <h3 class="popup-title">Tim Penyusun</h3>
+                <p class="popup-subtitle">Tugas Sejarah Proklamasi Kemerdekaan 1945</p>
+            </div>
+            <div class="team-members-list">
+                <div class="team-member-item"><i class="fa-solid fa-user-gear"></i> Rendi Marwanto</div>
+                <div class="team-member-item"><i class="fa-solid fa-user-pen"></i> Muhammad Niyaz R</div>
+                <div class="team-member-item"><i class="fa-solid fa-user-check"></i> Rafa Yumna</div>
+                <div class="team-member-item"><i class="fa-solid fa-user-graduate"></i> Riski Widya</div>
+                <div class="team-member-item"><i class="fa-solid fa-user-ninja"></i> Muhammad Fauzan</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Modal Popup -->
+    <div id="about-modal" class="app-popup-modal" aria-hidden="true">
+        <div class="popup-backdrop"></div>
+        <div class="popup-card">
+            <button class="popup-close-btn" data-close-modal="about-modal" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+            <div class="popup-header">
+                <div class="popup-icon-badge"><i class="fa-solid fa-circle-info"></i></div>
+                <h3 class="popup-title">Tentang Aplikasi</h3>
+                <p class="popup-subtitle">Media Pembelajaran Interaktif Sejarah</p>
+            </div>
+            <div class="popup-body-text">
+                <p>Website interaktif ini dirancang sebagai media pembelajaran kreatif mengenai peristiwa sekitar Proklamasi Kemerdekaan Indonesia 17 Agustus 1945.</p>
+                <div class="about-features-tags">
+                    <span><i class="fa-solid fa-layer-group"></i> Kartu 3D Interaktif</span>
+                    <span><i class="fa-solid fa-font"></i> Animasi ScrollFloat</span>
+                    <span><i class="fa-solid fa-gamepad"></i> 4 Mode Kuis Interaktif</span>
+                    <span><i class="fa-solid fa-palette"></i> Tema Warna Dinamis</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirm Reset Progress Modal Popup -->
+    <div id="confirm-reset-modal" class="app-popup-modal" aria-hidden="true">
+        <div class="popup-backdrop"></div>
+        <div class="popup-card confirm-card">
+            <button class="popup-close-btn" data-close-modal="confirm-reset-modal" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+            <div class="popup-header">
+                <div class="popup-icon-badge warning"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                <h3 class="popup-title">Konfirmasi Ganti Mode</h3>
+                <p class="popup-subtitle">Peringatan Reset Progres</p>
+            </div>
+            <div class="popup-body-text">
+                <p>Jika mengganti mode permainan, <strong>semua progres kuis dan skor saat ini akan di-reset</strong>!</p>
+                <div class="confirm-modal-actions">
+                    <button id="confirm-cancel-btn" class="quiz-action-btn secondary">Batal</button>
+                    <button id="confirm-reset-btn" class="quiz-action-btn primary danger"><i class="fa-solid fa-rotate-right"></i> Ya, Ganti Mode</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaderboard Modal Popup -->
+    <div id="leaderboard-modal" class="app-popup-modal" aria-hidden="true">
+        <div class="popup-backdrop"></div>
+        <div class="popup-card" style="max-height: 80vh; overflow-y: auto;">
+            <button class="popup-close-btn" data-close-modal="leaderboard-modal" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+            <div class="popup-header">
+                <div class="popup-icon-badge" style="color: #f1c40f;"><i class="fa-solid fa-trophy"></i></div>
+                <h3 class="popup-title">Leaderboard Kelas</h3>
+                <p class="popup-subtitle">Skor Tertinggi Kuis Sejarah</p>
+            </div>
+            <div class="popup-body-text" id="leaderboard-content" style="text-align: left; margin-top: 16px;">
+                <!-- Leaderboard list will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal Popup -->
+    <div id="login-modal" class="app-popup-modal" aria-hidden="true">
+        <div class="popup-backdrop"></div>
+        <div class="popup-card" style="border: 2px solid var(--dynamic-text-color);">
+            <div class="popup-header">
+                <div class="popup-icon-badge"><i class="fa-solid fa-user-graduate"></i></div>
+                <h3 class="popup-title">Login Siswa</h3>
+                <p class="popup-subtitle">Masukkan Nama Depan dan No. Absen</p>
+            </div>
+            <div class="popup-body-text">
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 10px; text-align: left;">
+                    <input type="text" id="login-nama" placeholder="Nama Depan (contoh: Rendi)" style="padding: 12px 16px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--dynamic-text-color) 20%, transparent); font-family: 'General Sans', sans-serif; background: color-mix(in srgb, var(--dynamic-text-color) 5%, transparent); color: var(--dynamic-text-color); outline: none;">
+                    <input type="number" id="login-absen" placeholder="No. Absen (1-33)" style="padding: 12px 16px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--dynamic-text-color) 20%, transparent); font-family: 'General Sans', sans-serif; background: color-mix(in srgb, var(--dynamic-text-color) 5%, transparent); color: var(--dynamic-text-color); outline: none;">
+                    <button id="login-submit-btn" class="quiz-action-btn primary" style="width: 100%; margin-top: 8px; justify-content: center;">Login <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
+                    <p id="login-error-msg" style="color: #ff4b2b; font-size: 0.85rem; display: none; margin: 0; text-align: center;"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-intro-section">
+        <h1>TUGAS SEJARAH</h1>
+        <h2 class="signature">Rendi Marwanto</h2>
+
+        <div class="stack-wrapper">
+            <div id="tilted-stack" class="tilted-stack-container">
+                <div class="tilted-stack-card" data-title="Achmad Soebardjo" data-caption="Menteri Luar Negeri Pertama Indonesia">
+                    <div class="card-image-wrapper">
+                        <img src="img/Achmad Soebardjo.png" alt="Achmad Soebardjo" class="card-image" draggable="false">
+                        <div class="card-overlay">
+                            <h3 class="card-title">Achmad Soebardjo</h3>
+                            <p class="card-caption">Menteri Luar Negeri Pertama Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tilted-stack-card" data-title="Mohammad Hatta" data-caption="Wakil Presiden Pertama & Bapak Koperasi">
+                    <div class="card-image-wrapper">
+                        <img src="img/Mohammad Hatta.png" alt="Mohammad Hatta" class="card-image" draggable="false">
+                        <div class="card-overlay">
+                            <h3 class="card-title">Mohammad Hatta</h3>
+                            <p class="card-caption">Wakil Presiden Pertama & Bapak Koperasi</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tilted-stack-card" data-title="Ir. Soekarno" data-caption="Proklamator & Kemerdekaan Indonesia">
+                    <div class="card-image-wrapper">
+                        <img src="img/Ir. Soekarno.png" alt="Ir. Soekarno" class="card-image" draggable="false">
+                        <div class="card-overlay">
+                            <h3 class="card-title">Ir. Soekarno</h3>
+                            <p class="card-caption">Proklamator & Kemerdekaan Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <canvas id="fuzzy-canvas" class="stack-footer-canvas"></canvas>
+        </div>
+    </div>
+
+    <!-- Scroll Stack Section (Materi Sejarah & Quiz) -->
+    <section id="materi-scroll-stack" class="scroll-stack-section">
+        <!-- Standalone Big Centered Section Title -->
+        <div class="materi-title-wrapper">
+            <h2 class="scroll-float-heading" data-scroll-float>QUIZZ</h2>
+        </div>
+
+        <!-- Interactive Quiz Container -->
+        <div id="quiz-container" class="quiz-container">
+            <div class="quiz-header">
+                <div class="quiz-progress-info">
+                    <span id="quiz-question-counter" class="quiz-badge">Soal 1/10</span>
+                    <span id="quiz-mode-badge" class="quiz-badge mode-badge">🎮 Pilihan Ganda</span>
+                    <span id="quiz-streak-badge" class="quiz-badge streak-badge">🔥 Streak 0</span>
+                </div>
+                <div class="quiz-score-box">
+                    <span class="quiz-score-label">SKOR</span>
+                    <span id="quiz-score-value" class="quiz-score-number">0</span>
+                </div>
+            </div>
+
+            <div class="quiz-progress-bar-bg">
+                <div id="quiz-progress-fill" class="quiz-progress-fill"></div>
+            </div>
+
+            <!-- Active Quiz Card Shell -->
+            <div id="quiz-card" class="quiz-card">
+                <!-- Content will be injected dynamically via js/quiz.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- JS files -->
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+
+</html>
